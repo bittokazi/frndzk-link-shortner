@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^b([0-9a-zA-Z]+)$ bitto-redirector.php?url=$1
+RewriteRule ^b([0-9a-zA-Z]+)/$ bitto-redirector.php?url=$1
+RewriteRule ^([0-9a-zA-Z]+)/b([0-9a-zA-Z]+)$ bitto-redirector.php?dir=$1&url=$2
+RewriteRule ^([0-9a-zA-Z]+)/b([0-9a-zA-Z]+)/$ bitto-redirector.php?dir=$1&url=$2
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+RewriteRule ^frndzk-home-page.php index.php
+RewriteRule ^frndzk.php index.php
+RewriteRule ^frndzk_bitto_functions.php index.php
+</IfModule>
